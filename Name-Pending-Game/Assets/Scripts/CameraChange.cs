@@ -5,7 +5,8 @@ using Cinemachine;
 
 public class CameraChange : MonoBehaviour
 {
-    public GameObject MainCamera;
+    public GameObject OldCamera;
+    public GameObject NewCamera;
     private bool Entered;
     public bool Cut;
     private CinemachineBrain brain;
@@ -37,7 +38,8 @@ public class CameraChange : MonoBehaviour
                 brain.m_DefaultBlend.m_Time = 1;
             }
 
-            MainCamera.SetActive(false);
+            OldCamera.SetActive(false);
+            NewCamera.SetActive(true);
             Entered = true;
         }
         else
@@ -53,7 +55,8 @@ public class CameraChange : MonoBehaviour
                 brain.m_DefaultBlend.m_Time = 1;
             }
 
-            MainCamera.SetActive(true);
+            OldCamera.SetActive(true);
+            NewCamera.SetActive(false);
             Entered = false;
         }
 
