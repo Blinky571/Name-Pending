@@ -11,12 +11,10 @@ public class Depositor : MonoBehaviour, IInteractable
         if (powerCellsAcquired > 0)
         {
             powerCellsAcquired--;
-            Debug.Log("Delivering PowerCell");
             DoTheThing();
         }
         else
         {
-            Debug.Log("Not enough PowerCells");
         }
 
         return powerCellsAcquired;
