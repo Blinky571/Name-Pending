@@ -37,4 +37,9 @@ public class Elevator : MonoBehaviour, IInteractable
     {
         return powerCellsAcquired;
     }
+
+    public void FlagSpot(int FlagsPlaced)
+    {
+        throw new System.NotImplementedException();
+    }
 }
