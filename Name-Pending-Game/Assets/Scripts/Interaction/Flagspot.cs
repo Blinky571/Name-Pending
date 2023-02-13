@@ -5,6 +5,7 @@ using UnityEngine;
 public class Flagspot : MonoBehaviour, IInteractable
 {
     public string InteractionPrompt { get; }
+    public GameObject replacement;
 
     public void ElevatorMove()
     {
