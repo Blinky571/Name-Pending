@@ -11,6 +11,11 @@ public class CameraChange : MonoBehaviour
     public bool Cut;
     private CinemachineBrain brain;
 
+    private void Awake()
+    {
+        brain = FindObjectOfType<CinemachineBrain>();
+        
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +35,6 @@ public class CameraChange : MonoBehaviour
         {
             if(Cut == true)
             {
-                brain = FindObjectOfType<CinemachineBrain>();
                 brain.m_DefaultBlend.m_Time = 0;
             }
             else
