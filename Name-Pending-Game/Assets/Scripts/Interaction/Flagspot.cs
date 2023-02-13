@@ -9,18 +9,18 @@ public class Flagspot : MonoBehaviour, IInteractable
 
     public void ElevatorMove()
     {
-        throw new System.NotImplementedException();
     }
 
     public int Interact(Interactor interactor, int powerCellsAcquired)
     {
-        throw new System.NotImplementedException();
+        return powerCellsAcquired;
     }
 
     public void FlagSpot(int flagsPlaced)
     {
+        flagsPlaced++;
         Instantiate(replacement, transform.position, transform.rotation);
         Destroy(gameObject);
-
+        return;
     }
 }
