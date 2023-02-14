@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Flagspot : MonoBehaviour, IInteractable
 {
+    public Powercell_Text powercell_Text;
+
     public string InteractionPrompt { get; }
     public GameObject replacement;
 
@@ -20,7 +22,7 @@ public class Flagspot : MonoBehaviour, IInteractable
     {
         flagsPlaced++;
         Instantiate(replacement, transform.position, transform.rotation);
+        powercell_Text.FlagPlaced();
         Destroy(gameObject);
-        return;
     }
 }

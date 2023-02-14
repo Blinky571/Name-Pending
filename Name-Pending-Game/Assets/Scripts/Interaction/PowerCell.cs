@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PowerCell : MonoBehaviour, IInteractable
 {
+    public Powercell_Text powercell_Text;
+
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
 
@@ -16,7 +18,7 @@ public class PowerCell : MonoBehaviour, IInteractable
         if (powerCellsAcquired < 3)
         {
             powerCellsAcquired++;
-            Debug.Log("PowerCell Acuired");
+            powercell_Text.HoldingPowercell(powerCellsAcquired);
             Destroy(gameObject);
         }
         return powerCellsAcquired;
@@ -24,7 +26,6 @@ public class PowerCell : MonoBehaviour, IInteractable
 
     public void FlagSpot(int flagsPlaced)
     {
-        throw new System.NotImplementedException();
     }
 
 }
