@@ -29,15 +29,12 @@ public class Elevator : MonoBehaviour, IInteractable
         else
         {
             GameObject.FindGameObjectWithTag("Player").transform.position = _stations[0].transform.position;
-        }
-            
+        }  
     }
-
     public int Interact(Interactor interactor, int powerCellsAcquired)
     {
         return powerCellsAcquired;
     }
-
     public void FlagSpot(int FlagsPlaced)
     {
         throw new System.NotImplementedException();
