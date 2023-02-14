@@ -14,7 +14,7 @@ public class Player_Controller : MonoBehaviour
     private float _jumpHeight;
     #endregion
 
-    private bool _isGrounded;
+    public bool _isGrounded;
     private bool _FacingRight = true;
     private Vector2 _playerVelocity;
     private bool _isJogging;
@@ -76,7 +76,14 @@ public class Player_Controller : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        _isGrounded = true;
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            _isGrounded = true;
+        }
+        else
+        {
+            _isGrounded = false;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
