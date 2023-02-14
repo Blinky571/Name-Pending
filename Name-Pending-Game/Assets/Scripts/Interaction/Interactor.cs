@@ -24,6 +24,7 @@ public class Interactor : MonoBehaviour
                 interactable.FlagSpot(flagsPlaced);
 
             }
+            Debug.Log("THIS IS WHERE YOU SHOULD PRESS E");
         }
     }
     private void OnDrawGizmos()
