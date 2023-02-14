@@ -22,4 +22,9 @@ public class PowerCell : MonoBehaviour, IInteractable
         return powerCellsAcquired;
     }
 
+    public void FlagSpot(int flagsPlaced)
+    {
+        throw new System.NotImplementedException();
+    }
+
 }

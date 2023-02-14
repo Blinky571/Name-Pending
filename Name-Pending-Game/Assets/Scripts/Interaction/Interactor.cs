@@ -12,6 +12,7 @@ public class Interactor : MonoBehaviour
     [SerializeField] private int _numFound;
 
     [SerializeField] private int powerCellsAcquired;
+    [SerializeField] private int flagsPlaced;
                                                                                 
     private void Update()
     {
@@ -25,6 +26,7 @@ public class Interactor : MonoBehaviour
             {
                 powerCellsAcquired = interactable.Interact(this, powerCellsAcquired);
                 interactable.ElevatorMove();
+                interactable.FlagSpot(flagsPlaced);
             }
             Debug.Log(powerCellsAcquired);
         }

@@ -9,4 +9,6 @@ public interface IInteractable
     public int Interact(Interactor interactor, int powerCellsAcquired);
 
     public void ElevatorMove();
+
+    public void FlagSpot(int flagsPlaced);
 }
