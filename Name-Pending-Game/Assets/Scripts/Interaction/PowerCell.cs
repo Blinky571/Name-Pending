@@ -9,17 +9,20 @@ public class PowerCell : MonoBehaviour, IInteractable
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
 
+    public ParticleSystem CollectParticle;
+
     public void ElevatorMove()
     {
     }
 
     public int Interact(Interactor interactor, int powerCellsAcquired)
     {
+        CollectParticle.Play();
+
         if (powerCellsAcquired < 3)
         {
             powerCellsAcquired++;
             powercell_Text.HoldingPowercell(powerCellsAcquired);
-            Destroy(gameObject);
         }
         return powerCellsAcquired;
     }
