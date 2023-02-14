@@ -10,7 +10,7 @@ public class Interactor : MonoBehaviour
     private readonly Collider2D[] _collidders = new Collider2D[3];
     [SerializeField] private int _numFound;
     [SerializeField] private int powerCellsAcquired;
-    [SerializeField] private int flagsPlaced;                                                                        
+    [SerializeField] private int flagsPlaced;
     private void Update()
     {
         _numFound = Physics2D.OverlapCircleNonAlloc(_interactionPoint.position, _interactionPointRadius, _collidders, (int)_interactableMask);
@@ -22,6 +22,7 @@ public class Interactor : MonoBehaviour
                 powerCellsAcquired = interactable.Interact(this, powerCellsAcquired);
                 interactable.ElevatorMove();
                 interactable.FlagSpot(flagsPlaced);
+
             }
         }
     }
