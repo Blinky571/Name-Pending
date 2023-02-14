@@ -18,6 +18,7 @@ public class Player_Controller : MonoBehaviour
     private bool _FacingRight = true;
     private Vector2 _playerVelocity;
     private bool _isJogging;
+    public ParticleSystem dust;
 
 
     private void Awake()
@@ -44,6 +45,7 @@ public class Player_Controller : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && _isGrounded)
         {
+            CreateDust();
             rb.AddForce(new Vector2(0, _jumpHeight));
             animator.SetBool("isWaiting", false);
         }
@@ -65,6 +67,12 @@ public class Player_Controller : MonoBehaviour
 
         _FacingRight = !_FacingRight;
     }
+
+    void CreateDust()
+    {
+        dust.Play();
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
