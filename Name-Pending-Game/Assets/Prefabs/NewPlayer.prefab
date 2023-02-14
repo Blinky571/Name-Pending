@@ -34,6 +34,7 @@ Transform:
   m_LocalScale: {x: 0.625, y: 0.625, z: 1}
   m_Children:
   - {fileID: 2481684711867984519}
+  - {fileID: 5742469807714572646}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -121,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerSpeed: 3.5
   _jumpHeight: 300
+  dust: {fileID: 5742469807714572640}
 --- !u!50 &2481684710665047059
 Rigidbody2D:
   serializedVersion: 4
@@ -151,7 +153,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2481684710665047057}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: bbc94d8abd8b7fb4687e2b6c3b7c8c1b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -187,6 +189,7 @@ MonoBehaviour:
     m_Bits: 16
   _numFound: 0
   powerCellsAcquired: 0
+  flagsPlaced: 0
 --- !u!1 &2481684711867984516
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,3 +220,70 @@ Transform:
   m_Father: {fileID: 2481684710665047058}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &4415700254055508550
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2481684710665047058}
+    m_Modifications:
+    - target: {fileID: 8284070390828839712, guid: 4f58331488fc2d24aa977c9a970aa068, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284070390828839712, guid: 4f58331488fc2d24aa977c9a970aa068, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284070390828839712, guid: 4f58331488fc2d24aa977c9a970aa068, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284070390828839712, guid: 4f58331488fc2d24aa977c9a970aa068, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284070390828839712, guid: 4f58331488fc2d24aa977c9a970aa068, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284070390828839712, guid: 4f58331488fc2d24aa977c9a970aa068, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284070390828839712, guid: 4f58331488fc2d24aa977c9a970aa068, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284070390828839712, guid: 4f58331488fc2d24aa977c9a970aa068, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284070390828839712, guid: 4f58331488fc2d24aa977c9a970aa068, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284070390828839712, guid: 4f58331488fc2d24aa977c9a970aa068, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284070390828839712, guid: 4f58331488fc2d24aa977c9a970aa068, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284070390828839713, guid: 4f58331488fc2d24aa977c9a970aa068, type: 3}
+      propertyPath: m_Name
+      value: Dust Cloud
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4f58331488fc2d24aa977c9a970aa068, type: 3}
+--- !u!4 &5742469807714572646 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8284070390828839712, guid: 4f58331488fc2d24aa977c9a970aa068, type: 3}
+  m_PrefabInstance: {fileID: 4415700254055508550}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5742469807714572640 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8284070390828839718, guid: 4f58331488fc2d24aa977c9a970aa068, type: 3}
+  m_PrefabInstance: {fileID: 4415700254055508550}
+  m_PrefabAsset: {fileID: 0}
