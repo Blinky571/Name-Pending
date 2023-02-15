@@ -21,12 +21,12 @@ public class PowerCell : MonoBehaviour, IInteractable
 
     public int Interact(Interactor interactor, int powerCellsAcquired)
     {
-        CollectParticle.Play();
 
         if (powerCellsAcquired < 3)
         {
             powerCellsAcquired++;
             powercell_Text.HoldingPowercell(powerCellsAcquired);
+            CollectParticle.Play();
         }
         return powerCellsAcquired;
     }
