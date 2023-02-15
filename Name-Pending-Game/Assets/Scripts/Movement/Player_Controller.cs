@@ -66,6 +66,7 @@ public class Player_Controller : MonoBehaviour
         if (Input.GetButtonUp("Jump") && _rb.velocity.y > 0f)
         {
             _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.5f);
+            _coyoteTimeCounter = 0f;
         }
 
         Flip();
