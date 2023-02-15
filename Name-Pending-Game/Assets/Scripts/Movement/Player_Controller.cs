@@ -11,6 +11,8 @@ public class Player_Controller : MonoBehaviour
     private LayerMask _groundLayer;
 
     private float _moveInput;
+    private float _coyoteTime = 0.2f;
+    private float _coyoteTimeCounter;
 
     #region Player Speeds
     [SerializeField] private float _playerSpeed;
@@ -24,6 +26,7 @@ public class Player_Controller : MonoBehaviour
 
     private void Awake()
     {
+        _groundLayer = LayerMask.GetMask("Ground");
         _groundCheck = transform.Find("groundCheck");
         _animator = gameObject.GetComponent<Animator>();
         _rb = gameObject.GetComponent<Rigidbody2D>();        
@@ -32,32 +35,45 @@ public class Player_Controller : MonoBehaviour
 
     private void Update()
     {
-        _moveInput = Input.GetAxisRaw("Horizontal");
+        if (IsGrounded())
+        {
+            _coyoteTimeCounter = _coyoteTime;
+        }
+        else
+        {
+            _coyoteTimeCounter -= Time.deltaTime;
+        }
+
         
-        /*
-        transform.Translate(_playerVelocity * Time.deltaTime);
+        _moveInput = Input.GetAxisRaw("Horizontal");
         _animator.SetBool("isJogging", _isJogging);
         if (_moveInput != 0)
         {
-            _playerVelocity.x = _moveInput * _playerSpeed;
             _isJogging = true;
             _animator.SetBool("isWaiting", false);
         }
         else
         {
-            _playerVelocity.x = 0f;
             _isJogging = false;
         }
-        */
-
-        if (Input.GetButtonDown("Jump"))
+        if (_coyoteTimeCounter > 0f && Input.GetButtonDown("Jump") )
         {
             CreateDust();
-            _rb.AddForce(new Vector2(0, _jumpHeight));
+            _rb.velocity = new Vector2(_rb.velocity.x, _jumpHeight);
             _animator.SetBool("isWaiting", false);
         }
 
+        if (Input.GetButtonUp("Jump") && _rb.velocity.y > 0f)
+        {
+            _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.5f);
+        }
+
         Flip();
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(_groundCheck.position, 0.2f, _groundLayer);
     }
 
     private void FixedUpdate()
