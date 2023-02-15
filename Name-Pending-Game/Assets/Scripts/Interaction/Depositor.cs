@@ -22,4 +22,9 @@ public class Depositor : MonoBehaviour, IInteractable
     public void FlagSpot(int flagsPlaced)
     {
     }
+
+    public void popUp()
+    {
+        throw new System.NotImplementedException();
+    }
 }

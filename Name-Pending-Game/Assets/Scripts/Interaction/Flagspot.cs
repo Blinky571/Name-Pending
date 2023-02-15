@@ -25,4 +25,9 @@ public class Flagspot : MonoBehaviour, IInteractable
         powercell_Text.FlagPlaced();
         Destroy(gameObject);
     }
+
+    public void popUp()
+    {
+        throw new System.NotImplementedException();
+    }
 }

@@ -11,6 +11,11 @@ public class Interactor : MonoBehaviour
     [SerializeField] private int _numFound;
     [SerializeField] private int powerCellsAcquired;
     [SerializeField] private int flagsPlaced;
+
+    private void Start()
+    {
+        
+    }
     private void Update()
     {
         _numFound = Physics2D.OverlapCircleNonAlloc(_interactionPoint.position, _interactionPointRadius, _collidders, (int)_interactableMask);
@@ -24,6 +29,7 @@ public class Interactor : MonoBehaviour
                 interactable.FlagSpot(flagsPlaced);
 
             }
+            interactable.popUp();
             Debug.Log("THIS IS WHERE YOU SHOULD PRESS E");
         }
     }

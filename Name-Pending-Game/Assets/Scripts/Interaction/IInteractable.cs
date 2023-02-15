@@ -11,4 +11,7 @@ public interface IInteractable
     public void ElevatorMove();
 
     public void FlagSpot(int flagsPlaced);
+
+    public void popUp();
+
 }
