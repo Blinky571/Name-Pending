@@ -25,8 +25,9 @@ public class PowerCell : MonoBehaviour, IInteractable
         if (powerCellsAcquired < 3)
         {
             powerCellsAcquired++;
-            powercell_Text.HoldingPowercell(powerCellsAcquired);
             CollectParticle.Play();
+            powercell_Text.HoldingPowercell(powerCellsAcquired);
+            Destroy(gameObject);
         }
         return powerCellsAcquired;
     }

@@ -30,7 +30,6 @@ Transform:
   m_LocalPosition: {x: -1, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7772242260163798637}
   - {fileID: 4101359811656996611}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -127,7 +126,7 @@ MonoBehaviour:
   popUpPromt: {fileID: 5069735967982960632}
   powercell_Text: {fileID: 0}
   _prompt: 
-  CollectParticle: {fileID: 4311994836428274412}
+  CollectParticle: {fileID: 0}
 --- !u!1 &5069735967982960632
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +156,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3958406482428518026}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5852242918035744972
 SpriteRenderer:
@@ -210,71 +209,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &6927624731080263864
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 3958406482428518026}
-    m_Modifications:
-    - target: {fileID: 864498530043539157, guid: 029f9ff58e7c3e947b06686e60046162, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 864498530043539157, guid: 029f9ff58e7c3e947b06686e60046162, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 864498530043539157, guid: 029f9ff58e7c3e947b06686e60046162, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 864498530043539157, guid: 029f9ff58e7c3e947b06686e60046162, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -5.7651253
-      objectReference: {fileID: 0}
-    - target: {fileID: 864498530043539157, guid: 029f9ff58e7c3e947b06686e60046162, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 864498530043539157, guid: 029f9ff58e7c3e947b06686e60046162, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 864498530043539157, guid: 029f9ff58e7c3e947b06686e60046162, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 864498530043539157, guid: 029f9ff58e7c3e947b06686e60046162, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 864498530043539157, guid: 029f9ff58e7c3e947b06686e60046162, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 864498530043539157, guid: 029f9ff58e7c3e947b06686e60046162, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 864498530043539157, guid: 029f9ff58e7c3e947b06686e60046162, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8080413662832652482, guid: 029f9ff58e7c3e947b06686e60046162, type: 3}
-      propertyPath: m_Name
-      value: Powercell Particle
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -3646254569258544254, guid: 029f9ff58e7c3e947b06686e60046162, type: 3}
-  m_SourcePrefab: {fileID: 100100000, guid: 029f9ff58e7c3e947b06686e60046162, type: 3}
---- !u!4 &7772242260163798637 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 864498530043539157, guid: 029f9ff58e7c3e947b06686e60046162, type: 3}
-  m_PrefabInstance: {fileID: 6927624731080263864}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &4311994836428274412 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6626085363450393172, guid: 029f9ff58e7c3e947b06686e60046162, type: 3}
-  m_PrefabInstance: {fileID: 6927624731080263864}
-  m_PrefabAsset: {fileID: 0}
