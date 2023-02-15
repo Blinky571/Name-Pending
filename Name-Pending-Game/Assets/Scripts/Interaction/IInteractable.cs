@@ -14,4 +14,5 @@ public interface IInteractable
 
     public void popUp();
 
+    public void popDown();
 }

@@ -27,4 +27,9 @@ public class Depositor : MonoBehaviour, IInteractable
     {
         throw new System.NotImplementedException();
     }
+
+    public void popDown()
+    {
+        throw new System.NotImplementedException();
+    }
 }
