@@ -11,6 +11,8 @@ public class Player_Controller : MonoBehaviour
     private LayerMask _groundLayer;
 
     private float _moveInput;
+    private float _coyoteTime = 0.2f;
+    private float _coyoteTimeCounter;
 
     #region Player Speeds
     [SerializeField] private float _playerSpeed;
@@ -33,6 +35,16 @@ public class Player_Controller : MonoBehaviour
 
     private void Update()
     {
+        if (IsGrounded())
+        {
+            _coyoteTimeCounter = _coyoteTime;
+        }
+        else
+        {
+            _coyoteTimeCounter -= Time.deltaTime;
+        }
+
+        
         _moveInput = Input.GetAxisRaw("Horizontal");
         _animator.SetBool("isJogging", _isJogging);
         if (_moveInput != 0)
@@ -44,7 +56,7 @@ public class Player_Controller : MonoBehaviour
         {
             _isJogging = false;
         }
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (_coyoteTimeCounter > 0f && Input.GetButtonDown("Jump") )
         {
             CreateDust();
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpHeight);
@@ -53,7 +65,7 @@ public class Player_Controller : MonoBehaviour
 
         if (Input.GetButtonUp("Jump") && _rb.velocity.y > 0f)
         {
-            _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.8f);
+            _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.5f);
         }
 
         Flip();
