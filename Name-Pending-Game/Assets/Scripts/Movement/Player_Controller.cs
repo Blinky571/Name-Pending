@@ -24,6 +24,7 @@ public class Player_Controller : MonoBehaviour
 
     private void Awake()
     {
+        _groundLayer = LayerMask.GetMask("Ground");
         _groundCheck = transform.Find("groundCheck");
         _animator = gameObject.GetComponent<Animator>();
         _rb = gameObject.GetComponent<Rigidbody2D>();        
@@ -33,31 +34,34 @@ public class Player_Controller : MonoBehaviour
     private void Update()
     {
         _moveInput = Input.GetAxisRaw("Horizontal");
-        
-        /*
-        transform.Translate(_playerVelocity * Time.deltaTime);
         _animator.SetBool("isJogging", _isJogging);
         if (_moveInput != 0)
         {
-            _playerVelocity.x = _moveInput * _playerSpeed;
             _isJogging = true;
             _animator.SetBool("isWaiting", false);
         }
         else
         {
-            _playerVelocity.x = 0f;
             _isJogging = false;
         }
-        */
-
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             CreateDust();
-            _rb.AddForce(new Vector2(0, _jumpHeight));
+            _rb.velocity = new Vector2(_rb.velocity.x, _jumpHeight);
             _animator.SetBool("isWaiting", false);
         }
 
+        if (Input.GetButtonUp("Jump") && _rb.velocity.y > 0f)
+        {
+            _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.8f);
+        }
+
         Flip();
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(_groundCheck.position, 0.2f, _groundLayer);
     }
 
     private void FixedUpdate()
