@@ -3766,6 +3766,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1538444385}
     - target: {fileID: 5332584040617093177, guid: d20d38c1733e8824bb5f5ab1092fe2fd, type: 3}
+      propertyPath: _jumpHeight
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332584040617093177, guid: d20d38c1733e8824bb5f5ab1092fe2fd, type: 3}
       propertyPath: _wallClimbSpeed
       value: 2
       objectReference: {fileID: 0}
@@ -3819,6 +3823,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5332584040617093188, guid: d20d38c1733e8824bb5f5ab1092fe2fd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332584040617093189, guid: d20d38c1733e8824bb5f5ab1092fe2fd, type: 3}
+      propertyPath: m_Interpolate
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5332584040617093191, guid: d20d38c1733e8824bb5f5ab1092fe2fd, type: 3}
