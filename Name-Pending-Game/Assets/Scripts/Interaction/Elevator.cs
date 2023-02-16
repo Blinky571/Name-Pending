@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Elevator : MonoBehaviour, IInteractable
 {
-    
     [SerializeField] private List<GameObject> _stations;
     [SerializeField] private bool atShip;
-
     public string InteractionPrompt { get; }
-
     public void ElevatorMove()
     {
-
         if (this.gameObject == _stations[0])
         {
             atShip = true;
@@ -21,7 +17,6 @@ public class Elevator : MonoBehaviour, IInteractable
         {
             atShip = false;
         }
-
         if (atShip)
         {
             GameObject.FindGameObjectWithTag("Player").transform.position = _stations[1].transform.position;
@@ -31,22 +26,13 @@ public class Elevator : MonoBehaviour, IInteractable
             GameObject.FindGameObjectWithTag("Player").transform.position = _stations[0].transform.position;
         }  
     }
+    #region Unused
     public int Interact(Interactor interactor, int powerCellsAcquired)
     {
         return powerCellsAcquired;
     }
     public void FlagSpot(int FlagsPlaced)
     {
-        throw new System.NotImplementedException();
     }
-
-    public void popUp()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void popDown()
-    {
-        throw new System.NotImplementedException();
-    }
+    #endregion
 }

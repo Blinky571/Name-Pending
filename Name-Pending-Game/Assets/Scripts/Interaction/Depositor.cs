@@ -16,20 +16,12 @@ public class Depositor : MonoBehaviour, IInteractable
         }
         return powerCellsAcquired;
     }
+    #region Unused
     public void ElevatorMove()
     {
     }
     public void FlagSpot(int flagsPlaced)
     {
     }
-
-    public void popUp()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void popDown()
-    {
-        throw new System.NotImplementedException();
-    }
+    #endregion
 }
