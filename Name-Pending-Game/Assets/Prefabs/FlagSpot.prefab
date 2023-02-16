@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 2016997670081377543}
   - component: {fileID: 788639588381645295}
   - component: {fileID: 883099356746264365}
-  m_Layer: 0
+  - component: {fileID: 6742730916257784693}
+  m_Layer: 4
   m_Name: FlagSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 5710d72c755cad24bbe61a37dadcbf47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -95,5 +96,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8dad8ca4255e16458f98734be2ebfc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powercell_Text: {fileID: 8256869471815703013, guid: 118549d8912e82c4a85dd6c3b90cc769, type: 3}
+  powercell_Text: {fileID: 0}
   replacement: {fileID: 7383960879731201427, guid: f505dafca5859b2429ec73924d30bf8c, type: 3}
+--- !u!61 &6742730916257784693
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3823373152357034478}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.3, y: 4.8}
+    newSize: {x: 2.3, y: 4.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.3, y: 4.8}
+  m_EdgeRadius: 0
