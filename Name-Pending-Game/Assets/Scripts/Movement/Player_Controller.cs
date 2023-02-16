@@ -13,6 +13,8 @@ public class Player_Controller : MonoBehaviour
     private float _moveInput;
     private float _coyoteTime = 0.2f;
     private float _coyoteTimeCounter;
+    private float _jumpBufferTime = 0.2f;
+    private float _jumpBufferTimeCounter;
 
     #region Player Speeds
     [SerializeField] private float _playerSpeed;
@@ -31,8 +33,6 @@ public class Player_Controller : MonoBehaviour
         _animator = gameObject.GetComponent<Animator>();
         _rb = gameObject.GetComponent<Rigidbody2D>();        
     }
-
-
     private void Update()
     {
         if (IsGrounded())
@@ -44,7 +44,15 @@ public class Player_Controller : MonoBehaviour
             _coyoteTimeCounter -= Time.deltaTime;
         }
 
-        
+        if (Input.GetButtonDown("Jump"))
+        {
+            _jumpBufferTimeCounter = _jumpBufferTime;
+        }
+        else
+        {
+            _jumpBufferTimeCounter -= Time.deltaTime;
+        }
+
         _moveInput = Input.GetAxisRaw("Horizontal");
         _animator.SetBool("isJogging", _isJogging);
         if (_moveInput != 0)
@@ -56,13 +64,13 @@ public class Player_Controller : MonoBehaviour
         {
             _isJogging = false;
         }
-        if (_coyoteTimeCounter > 0f && Input.GetButtonDown("Jump") )
+        if (_coyoteTimeCounter > 0f && _jumpBufferTimeCounter > 0f)
         {
+            _jumpBufferTimeCounter = 0f;
             CreateDust();
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpHeight);
             _animator.SetBool("isWaiting", false);
         }
-
         if (Input.GetButtonUp("Jump") && _rb.velocity.y > 0f)
         {
             _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.5f);
@@ -74,7 +82,7 @@ public class Player_Controller : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(_groundCheck.position, 0.2f, _groundLayer);
+        return Physics2D.OverlapCircle(_groundCheck.position, 0.05f, _groundLayer);
     }
 
     private void FixedUpdate()
