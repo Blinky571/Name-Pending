@@ -44,4 +44,9 @@ public class Elevator : MonoBehaviour, IInteractable
     {
         throw new System.NotImplementedException();
     }
+
+    public void popDown()
+    {
+        throw new System.NotImplementedException();
+    }
 }

@@ -32,6 +32,12 @@ public class Interactor : MonoBehaviour
             interactable.popUp();
             Debug.Log("THIS IS WHERE YOU SHOULD PRESS E");
         }
+        else
+        {
+            var interactable = GetComponent<IInteractable>();
+
+            interactable.popDown();
+        }
     }
     private void OnDrawGizmos()
     {

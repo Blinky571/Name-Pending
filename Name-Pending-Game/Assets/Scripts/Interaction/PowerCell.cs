@@ -65,4 +65,10 @@ public class PowerCell : MonoBehaviour, IInteractable
         popUpPromt.SetActive(true);
         StartCoroutine("StartPulsing");
     }
+
+    public void popDown()
+    {
+        popUpPromt.SetActive(false);
+        StopCoroutine("StartPulsing");
+    }
 }
