@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
+    private Transform _popUpPrompt;
     public ParticleSystem dust;
     private Animator _animator;
     private Rigidbody2D _rb;
@@ -19,6 +20,7 @@ public class Player_Controller : MonoBehaviour
     private float _jumpBufferTimeCounter;
 
     private bool _isWallSliding;
+    private SpriteRenderer _spi;
 
     #region Player Speeds
     [SerializeField] private float _playerSpeed;
@@ -26,22 +28,30 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] private float _wallSlidingSpeed;
     [SerializeField] private float _wallClimbSpeed;
     #endregion
-
     private bool _FacingRight = true;
     private bool _isJogging;
-
-
     private void Awake()
     {
+        _popUpPrompt = transform.Find("popUpPrompt");
         _groundLayer = LayerMask.GetMask("Ground");
-        //_wallLayer = LayerMask.GetMask("Wall");
+        _wallLayer = LayerMask.GetMask("Wall");
         _groundCheck = transform.Find("groundCheck");
-        //_wallCheck = transform.Find("wallCheck");
+        _wallCheck = transform.Find("wallCheck");
         _animator = gameObject.GetComponent<Animator>();
-        _rb = gameObject.GetComponent<Rigidbody2D>();        
+        _rb = gameObject.GetComponent<Rigidbody2D>();  
+        _spi =_popUpPrompt.GetComponent<SpriteRenderer>();
     }
     private void Update()
     {
+        if (!_FacingRight)
+        {
+            _spi.flipX = true;
+        }
+        else
+        {
+            _spi.flipX = false;
+        }
+
         if (IsGrounded())
         {
             _animator.SetBool("isJumping", false);
@@ -88,24 +98,20 @@ public class Player_Controller : MonoBehaviour
         WallSlide();
         Flip();
     }
-
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(_groundCheck.position, 0.2f, _groundLayer);
     }
-
     private bool IsWalled()
     {
         return Physics2D.OverlapCircle(_wallCheck.position, 0.2f, _wallLayer);
     }
-
     private void WallSlide()
     {
-        if (IsWalled() && !IsGrounded() && _moveInput != 0f)
+        if (IsWalled() && _moveInput != 0f)
         {
             _isWallSliding = true;
             _rb.velocity = new Vector2(_rb.velocity.x, Mathf.Clamp(_rb.velocity.y, -_wallSlidingSpeed, float.MaxValue));
-            dust.Play();
             if (Input.GetKey(KeyCode.W))
             {
                 _rb.velocity = new Vector2(_rb.velocity.x, _wallClimbSpeed);

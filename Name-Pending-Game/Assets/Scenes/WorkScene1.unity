@@ -134,10 +134,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerCell1
       objectReference: {fileID: 0}
-    - target: {fileID: 3958406482428518023, guid: 43dfe89636151404789a0d7fc8912b08, type: 3}
-      propertyPath: powercell_Text
-      value: 
-      objectReference: {fileID: 1871950497}
     - target: {fileID: 3958406482428518026, guid: 43dfe89636151404789a0d7fc8912b08, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -186,10 +182,6 @@ PrefabInstance:
       propertyPath: powercell_Text
       value: 
       objectReference: {fileID: 1871950497}
-    - target: {fileID: 8611259141576909728, guid: 43dfe89636151404789a0d7fc8912b08, type: 3}
-      propertyPath: CollectParticle
-      value: 
-      objectReference: {fileID: 6626085363450393172, guid: 029f9ff58e7c3e947b06686e60046162, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43dfe89636151404789a0d7fc8912b08, type: 3}
 --- !u!1001 &198471453
@@ -300,30 +292,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &890314648 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3958406482428518022, guid: 43dfe89636151404789a0d7fc8912b08, type: 3}
-  m_PrefabInstance: {fileID: 36328293}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &890314653
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 890314648}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2ba80781bf822e846b873bbfad9daad1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1039634075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1711,7 +1679,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -3724,36 +3692,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &1538444384
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1538444385}
-  m_Layer: 0
-  m_Name: wallCheck
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1538444385
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1538444384}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4, y: 1.6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1969873233}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1577329445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3761,26 +3699,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5332584040617093177, guid: d20d38c1733e8824bb5f5ab1092fe2fd, type: 3}
-      propertyPath: _wallCheck
-      value: 
-      objectReference: {fileID: 1538444385}
-    - target: {fileID: 5332584040617093177, guid: d20d38c1733e8824bb5f5ab1092fe2fd, type: 3}
-      propertyPath: _jumpHeight
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 5332584040617093177, guid: d20d38c1733e8824bb5f5ab1092fe2fd, type: 3}
-      propertyPath: _wallClimbSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5332584040617093177, guid: d20d38c1733e8824bb5f5ab1092fe2fd, type: 3}
-      propertyPath: _wallLayer.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 5332584040617093177, guid: d20d38c1733e8824bb5f5ab1092fe2fd, type: 3}
-      propertyPath: _wallSlidingSpeed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5332584040617093188, guid: d20d38c1733e8824bb5f5ab1092fe2fd, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -3825,10 +3743,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5332584040617093189, guid: d20d38c1733e8824bb5f5ab1092fe2fd, type: 3}
-      propertyPath: m_Interpolate
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5332584040617093191, guid: d20d38c1733e8824bb5f5ab1092fe2fd, type: 3}
       propertyPath: m_Name
       value: NewPlayer
@@ -3856,6 +3770,10 @@ PrefabInstance:
     - target: {fileID: 8256869471815703008, guid: 118549d8912e82c4a85dd6c3b90cc769, type: 3}
       propertyPath: m_Name
       value: UI_for_Game_Test
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256869471815703008, guid: 118549d8912e82c4a85dd6c3b90cc769, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8256869471815703012, guid: 118549d8912e82c4a85dd6c3b90cc769, type: 3}
       propertyPath: m_Pivot.x
@@ -3959,8 +3877,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 118549d8912e82c4a85dd6c3b90cc769, type: 3}
---- !u!4 &1969873233 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5332584040617093188, guid: d20d38c1733e8824bb5f5ab1092fe2fd, type: 3}
-  m_PrefabInstance: {fileID: 1577329445}
-  m_PrefabAsset: {fileID: 0}
