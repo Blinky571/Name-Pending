@@ -11,7 +11,6 @@ public class Creature_Behavior : MonoBehaviour
     private bool facingRight = true;
     Vector2 characterDirection;
     [SerializeField] private Transform raycastOrigin;
-    [SerializeField] private Transform playerFeet;
     [SerializeField] private LayerMask layerMask;
     private RaycastHit2D Hit2D;
 
@@ -96,9 +95,6 @@ public class Creature_Behavior : MonoBehaviour
 
              }
         }
-
-        groundCheckMethod();
-        
     }
 
     void Turning(bool Hori, float faceRight)
@@ -117,15 +113,4 @@ public class Creature_Behavior : MonoBehaviour
             facingRight = true;
         }
     } 
-
-    private void groundCheckMethod()
-    {
-        Hit2D = Physics2D.Raycast(raycastOrigin.position, -Vector2.up, 100f, layerMask);
-        if (Hit2D != false)
-        {
-            Vector2 temp = playerFeet.position;
-            temp.y = Hit2D.point.y;
-            playerFeet.position = temp;
-        }
-    }
 }
