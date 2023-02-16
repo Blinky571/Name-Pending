@@ -5,7 +5,6 @@ using UnityEngine;
 public class Interactor : MonoBehaviour
 {
     public GameObject popUpPromt;
-
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionPointRadius = 0.5f;
     [SerializeField] private LayerMask _interactableMask;
@@ -20,8 +19,6 @@ public class Interactor : MonoBehaviour
         {
             var interactable = _collidders[0].GetComponent<IInteractable>();
             popUpPromt.SetActive(true);
-            
-            
             if (interactable != null && Input.GetButtonDown("Interact"))
             {
                 powerCellsAcquired = interactable.Interact(this, powerCellsAcquired);
