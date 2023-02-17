@@ -16,6 +16,7 @@ public class Powercell_Text : MonoBehaviour
     public int _amountToWin;
     private void Update()
     {
+
         FlagsPlaced.text = _flagsPlaced.ToString() + " Flagged";
         Holding.text = "Holding " + _currentAmountOnSteven.ToString() + "/3";
         Gathered.text = _amountGatheredToShip.ToString() + "/" + _amountToWin.ToString() + " Deposited";
@@ -23,10 +24,12 @@ public class Powercell_Text : MonoBehaviour
         {
             SceneManager.LoadScene("WinScene");
         }
+
+        Debug.Log(_currentAmountOnSteven);
     }
-    public void GatheredPowercell()
+    public void GatheredPowercell(int powerCellsDeposited)
     {
-        _amountGatheredToShip++;
+        _amountGatheredToShip += powerCellsDeposited;
     }
     public void HoldingPowercell(int powerCellsGathered)
     {

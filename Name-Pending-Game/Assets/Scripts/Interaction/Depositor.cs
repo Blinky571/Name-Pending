@@ -13,9 +13,9 @@ public class Depositor : MonoBehaviour, IInteractable
         if (powerCellsAcquired > 0)
         {
             particle.Play();
-            powerCellsAcquired--;
+            powercell_Text.GatheredPowercell(powerCellsAcquired);
+            powerCellsAcquired = 0;
             powercell_Text.HoldingPowercell(powerCellsAcquired);
-            powercell_Text.GatheredPowercell();
             SoundManagerScript.PlaySound("Insertion");
         }
         return powerCellsAcquired;

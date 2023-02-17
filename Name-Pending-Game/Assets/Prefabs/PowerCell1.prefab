@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popUpPromt: {fileID: 0}
-  powercell_Text: {fileID: 0}
+  powercell_Text: {fileID: 8256869471815703013, guid: 118549d8912e82c4a85dd6c3b90cc769, type: 3}
   _prompt: 
   CollectParticle: {fileID: 6626085363450393172, guid: 029f9ff58e7c3e947b06686e60046162, type: 3}
 --- !u!95 &890314653

@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8dad8ca4255e16458f98734be2ebfc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powercell_Text: {fileID: 0}
+  powercell_Text: {fileID: 8256869471815703013, guid: 118549d8912e82c4a85dd6c3b90cc769, type: 3}
   replacement: {fileID: 7383960879731201427, guid: f505dafca5859b2429ec73924d30bf8c, type: 3}
 --- !u!61 &6742730916257784693
 BoxCollider2D:
