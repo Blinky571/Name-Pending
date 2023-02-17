@@ -24,8 +24,6 @@ public class Powercell_Text : MonoBehaviour
         {
             SceneManager.LoadScene("WinScene");
         }
-
-        Debug.Log(_currentAmountOnSteven);
     }
     public void GatheredPowercell(int powerCellsDeposited)
     {

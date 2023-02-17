@@ -10,7 +10,7 @@ public class Flagspot : MonoBehaviour, IInteractable
     public void FlagSpot(int flagsPlaced)
     {
         flagsPlaced++;
-        Instantiate(replacement, transform.position, transform.rotation);
+        replacement.SetActive(true);
         powercell_Text.FlagPlaced();
         Destroy(gameObject);
     }
