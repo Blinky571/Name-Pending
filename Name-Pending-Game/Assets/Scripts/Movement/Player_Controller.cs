@@ -9,18 +9,22 @@ public class Player_Controller : MonoBehaviour
     private Animator _animator;
     private Rigidbody2D _rb;
     private Transform _groundCheck;
-    [SerializeField] private Transform _wallCheck;
+    private SpriteRenderer _spi;
+    private Transform _wallCheck;
     private LayerMask _groundLayer;
-    [SerializeField] private LayerMask _wallLayer;
+    private LayerMask _wallLayer;
+    
+    private bool _FacingRight = true;
+    private bool _isJogging;
 
+    #region Move variables
     [SerializeField] private float _moveInput;
     private float _coyoteTime = 0.2f;
     private float _coyoteTimeCounter;
     private float _jumpBufferTime = 0.2f;
     private float _jumpBufferTimeCounter;
-
     private bool _isWallSliding;
-    private SpriteRenderer _spi;
+
 
     #region Player Speeds
     [SerializeField] private float _playerSpeed;
@@ -28,8 +32,8 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] private float _wallSlidingSpeed;
     [SerializeField] private float _wallClimbSpeed;
     #endregion
-    private bool _FacingRight = true;
-    private bool _isJogging;
+    #endregion
+
     private void Awake()
     {
         _popUpPrompt = transform.Find("popUpPrompt");
@@ -104,7 +108,7 @@ public class Player_Controller : MonoBehaviour
     }
     private bool IsWalled()
     {
-        return Physics2D.OverlapCircle(_wallCheck.position, 0.2f, _wallLayer);
+        return Physics2D.OverlapCapsule(_wallCheck.position, new Vector2(0.1f, 2f), CapsuleDirection2D.Vertical, 0, _wallLayer);
     }
     private void WallSlide()
     {
