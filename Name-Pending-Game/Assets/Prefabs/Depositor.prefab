@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powercell_Text: {fileID: 8256869471815703013, guid: 118549d8912e82c4a85dd6c3b90cc769, type: 3}
+  particle: {fileID: 8284070390828839718, guid: 4f58331488fc2d24aa977c9a970aa068, type: 3}
 --- !u!61 &1285460076439727765
 BoxCollider2D:
   m_ObjectHideFlags: 0
