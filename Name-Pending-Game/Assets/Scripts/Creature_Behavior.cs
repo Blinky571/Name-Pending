@@ -13,6 +13,7 @@ public class Creature_Behavior : MonoBehaviour
     [SerializeField] private Transform raycastOrigin;
     [SerializeField] private LayerMask layerMask;
     private RaycastHit2D Hit2D;
+    public Animator animator;
 
     private float timeRemaining;
     private bool timerIsRunning = false;
@@ -27,7 +28,10 @@ public class Creature_Behavior : MonoBehaviour
         timerIsRunning = true;
 
         startspeed = speed;
+        animator = GetComponent<Animator>();
+        animator.SetBool("Moving", true);
     }
+
 
     // Update is called once per frame
     private void FixedUpdate()
@@ -43,7 +47,7 @@ public class Creature_Behavior : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(groundRay.transform.position, Vector2.down, 1f);
         Debug.DrawRay(groundRay.transform.position, Vector2.down,  Color.red);
 
-        RaycastHit2D wallHit = Physics2D.Raycast(groundRay.transform.position, Vector2.right * characterDirection!, 0.5f);
+        RaycastHit2D wallHit = Physics2D.Raycast(groundRay.transform.position, Vector2.right * characterDirection, 0.5f);
         Debug.DrawRay(groundRay.transform.position, Vector2.right * characterDirection, Color.red);
 
         rb2d.velocity = new Vector2(Horizontal * speed, rb2d.velocity.y);
@@ -57,6 +61,7 @@ public class Creature_Behavior : MonoBehaviour
             }
             else
             {
+                animator.SetBool("Moving", false);
                 speed = 0;
                 timerIsRunning = false;
                 float randomNumber = Random.Range(2, 5);
