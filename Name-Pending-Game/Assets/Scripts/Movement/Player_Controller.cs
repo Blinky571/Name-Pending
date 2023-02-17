@@ -13,6 +13,7 @@ public class Player_Controller : MonoBehaviour
     private Transform _wallCheck;
     private LayerMask _groundLayer;
     private LayerMask _wallLayer;
+    AudioSource audioSrc;
     
     private bool _FacingRight = true;
     private bool _isJogging;
@@ -24,6 +25,7 @@ public class Player_Controller : MonoBehaviour
     private float _jumpBufferTime = 0.2f;
     private float _jumpBufferTimeCounter;
     private bool _isWallSliding;
+    private bool _isWallClimbing;
 
 
     #region Player Speeds
@@ -33,6 +35,12 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] private float _wallClimbSpeed;
     #endregion
     #endregion
+
+    private void Start()
+    {
+        
+        audioSrc = GetComponent<AudioSource>();
+    }
 
     private void Awake()
     {
@@ -47,6 +55,7 @@ public class Player_Controller : MonoBehaviour
     }
     private void Update()
     {
+        _animator.SetBool("isWallsliding", _isWallSliding);
         if (!_FacingRight)
         {
             _spi.flipX = true;
@@ -54,6 +63,14 @@ public class Player_Controller : MonoBehaviour
         else
         {
             _spi.flipX = false;
+        }
+        if (_isWallClimbing)
+        {
+            _animator.SetBool("isClimbing", true);
+        }
+        else
+        {
+            _animator.SetBool("isClimbing", false);
         }
 
         if (IsGrounded())
@@ -79,18 +96,35 @@ public class Player_Controller : MonoBehaviour
         _animator.SetBool("isJogging", _isJogging);
         if (_moveInput != 0)
         {
-            _animator.SetBool("isWaiting", false);
-            _isJogging = true;
+
+            if (IsGrounded())
+            {
+                _animator.SetBool("isWaiting", false);
+                _isJogging = true;
+                if (!audioSrc.isPlaying)
+                {
+                    audioSrc.Play();
+                }
+            }
+            else
+            {
+                audioSrc.Stop();
+            }
+
+                
+            
         }
         else
         {
+            audioSrc.Stop();
             _isJogging = false;
         }
-        if (_coyoteTimeCounter > 0f && _jumpBufferTimeCounter > 0f)
+        if (_coyoteTimeCounter > 0f && _jumpBufferTimeCounter > 0f && !_isWallSliding && !_isWallClimbing)
         {
             _animator.SetTrigger("takeOff");
             _jumpBufferTimeCounter = 0f;
             dust.Play();
+            SoundManagerScript.PlaySound("Jetpack");
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpHeight);
             _animator.SetBool("isWaiting", false);
         }
@@ -118,11 +152,18 @@ public class Player_Controller : MonoBehaviour
             _rb.velocity = new Vector2(_rb.velocity.x, Mathf.Clamp(_rb.velocity.y, -_wallSlidingSpeed, float.MaxValue));
             if (Input.GetKey(KeyCode.W))
             {
+                _isWallSliding = false;
+                _isWallClimbing = true;
                 _rb.velocity = new Vector2(_rb.velocity.x, _wallClimbSpeed);
+            }
+            else
+            {
+                _isWallClimbing = false;
             }
         }
         else
         {
+            _isWallClimbing = false;
             _isWallSliding = false;
         }
     }
