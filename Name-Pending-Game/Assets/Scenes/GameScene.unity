@@ -396,7 +396,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 9147705365874401820, guid: be9d2e94560ff8e4f89d74eb29c56ae9, type: 3}
       propertyPath: _gameScene
-      value: WorkScene1
+      value: Demo Scene
       objectReference: {fileID: 0}
     - target: {fileID: 9147705366515649013, guid: be9d2e94560ff8e4f89d74eb29c56ae9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

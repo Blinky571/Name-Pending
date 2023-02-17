@@ -4056,7 +4056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8256869471815703013, guid: 118549d8912e82c4a85dd6c3b90cc769, type: 3}
       propertyPath: _amountToWin
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8256869472324557903, guid: 118549d8912e82c4a85dd6c3b90cc769, type: 3}
       propertyPath: m_AnchoredPosition.x

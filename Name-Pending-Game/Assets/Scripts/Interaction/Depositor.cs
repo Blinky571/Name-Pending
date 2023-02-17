@@ -16,6 +16,7 @@ public class Depositor : MonoBehaviour, IInteractable
             powerCellsAcquired--;
             powercell_Text.HoldingPowercell(powerCellsAcquired);
             powercell_Text.GatheredPowercell();
+            SoundManagerScript.PlaySound("Insertion");
         }
         return powerCellsAcquired;
     }
