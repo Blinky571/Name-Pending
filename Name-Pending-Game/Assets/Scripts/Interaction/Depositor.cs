@@ -8,18 +8,35 @@ public class Depositor : MonoBehaviour, IInteractable
     public string InteractionPrompt { get; }
 
     public ParticleSystem particle;
+
+    public Dialogue dialogue;
+
+
+
+
     public int Interact(Interactor interactor, int powerCellsAcquired)
     {
+ 
+
         if (powerCellsAcquired > 0)
         {
+
             particle.Play();
             powercell_Text.GatheredPowercell(powerCellsAcquired);
             powerCellsAcquired = 0;
             powercell_Text.HoldingPowercell(powerCellsAcquired);
             SoundManagerScript.PlaySound("Insertion");
         }
+        else
+        {
+            FindObjectOfType<DialogueManager>().StartDialouge(dialogue);
+        }
+
+
+
         return powerCellsAcquired;
     }
+
     #region Unused
     public void ElevatorMove()
     {
