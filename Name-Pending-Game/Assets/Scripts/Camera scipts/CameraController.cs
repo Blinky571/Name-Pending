@@ -3,36 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class CameraPriority : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera[] cameras;
-    private CinemachineVirtualCamera currentCamera;
+    [SerializeField] private CinemachineVirtualCamera thisCamera;
 
-    private void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        currentCamera = cameras[0];
-    }
-
-    private void Update()
-    {
-        float closestDistance = Mathf.Infinity;
-        foreach (CinemachineVirtualCamera camera in cameras)
+        for (int i = 0; i < cameras.Length; i++)
         {
-            float distance = Vector3.Distance(camera.transform.position, transform.position);
-            if (distance < closestDistance)
-            {
-                closestDistance = distance;
-                currentCamera = camera;
-            }
+            cameras[i].Priority = 0;
         }
-
-        currentCamera.Priority = 10;
-        foreach (CinemachineVirtualCamera camera in cameras)
-        {
-            if (camera != currentCamera)
-            {
-                camera.Priority = 1;
-            }
-        }
+        thisCamera.Priority = 1;
     }
 }
