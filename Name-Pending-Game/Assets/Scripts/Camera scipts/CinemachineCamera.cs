@@ -12,8 +12,8 @@ public class CinemachineCamera : MonoBehaviour
     {
         if (vcam1.Priority > vcam2.Priority) //tjekker om vcam1 priority er højere end vcam2
         {
-            vcam1.Priority = 0;
-            vcam2.Priority = 1;
+            vcam1.Priority = 0; //ændre prioriteten af vcam1 til 0
+            vcam2.Priority = 1; //ændre prioriteten af vcam2 til 1
         }
         else
         {
