@@ -17,9 +17,9 @@ public class Powercell_Text : MonoBehaviour
     private void Update()
     {
 
-        FlagsPlaced.text = _flagsPlaced.ToString() + " Flagged";
-        Holding.text = "Holding " + _currentAmountOnSteven.ToString() + "/3";
-        Gathered.text = _amountGatheredToShip.ToString() + "/" + _amountToWin.ToString() + " Deposited";
+        FlagsPlaced.text = _flagsPlaced.ToString();
+        Holding.text = _currentAmountOnSteven.ToString() + "/3";
+        Gathered.text = _amountGatheredToShip.ToString() + "/" + _amountToWin.ToString();
         if (_amountGatheredToShip >= _amountToWin)
         {
             SceneManager.LoadScene("WinScene");
