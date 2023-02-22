@@ -1,41 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Elevator : MonoBehaviour, IInteractable
 {
-    [SerializeField] private List<GameObject> _stations;
-    [SerializeField] private int _CurrentStation;
-    public string InteractionPrompt { get; }
-
-    private void Update()
+    [SerializeField] private GameObject _depositor;
+    [SerializeField] private GameObject _player;
+    private CinemachineBrain brain;
+    public string InteractionPrompt { get; }   
+    private void Awake()
     {
-        for (int i = 0; i < _stations.Count; i++)
-        {
-            if (this.gameObject == _stations[i])
-            {
-                _CurrentStation = i;
-            }
-        }
+        _depositor = GameObject.Find("Depositor");
+        _player = GameObject.FindGameObjectWithTag("Player");
+        brain = FindObjectOfType<CinemachineBrain>();
     }
     public void ElevatorMove()
     {
-        if (Input.GetKey(KeyCode.Alpha1))
-        {
-            GameObject.FindGameObjectWithTag("Player").transform.position = _stations[0].transform.position;
-        }
-        if (Input.GetKey(KeyCode.Alpha2))
-        {
-            GameObject.FindGameObjectWithTag("Player").transform.position = _stations[1].transform.position;
-        }
-        if (Input.GetKey(KeyCode.Alpha3))
-        {
-            GameObject.FindGameObjectWithTag("Player").transform.position = _stations[2].transform.position;
-        }
-
-
-
-
+        brain.m_DefaultBlend.m_Time = 0;
+        _player.transform.position = _depositor.transform.position;
     }
     #region Unused
     public int Interact(Interactor interactor, int powerCellsAcquired)
