@@ -10,9 +10,6 @@ public class Creature_Behavior : MonoBehaviour
     public float speed;
     private bool facingRight = true;
     Vector2 characterDirection;
-    [SerializeField] private Transform raycastOrigin;
-    [SerializeField] private LayerMask layerMask;
-    private RaycastHit2D Hit2D;
     public Animator animator;
 
     private float timeRemaining;
@@ -93,10 +90,11 @@ public class Creature_Behavior : MonoBehaviour
 
         if (wallHit.collider != null)
         {
+
              if(wallHit.collider.CompareTag("Wall"))
              {
 
-                 Turning(facingRight, Horizontal);
+                Turning(facingRight, Horizontal);
 
              }
         }
@@ -104,18 +102,14 @@ public class Creature_Behavior : MonoBehaviour
 
     void Turning(bool Hori, float faceRight)
     {
-        if (facingRight == true)
+        Debug.Log("goof");
+        if (!facingRight || facingRight)
         {
-            transform.localScale = new Vector3(0.3f, transform.localScale.y, transform.localScale.z);
-            Horizontal = -1;
-            facingRight = false;
-
-        }
-        else
-        {
-            transform.localScale = new Vector3(-0.3f, transform.localScale.y, transform.localScale.z);
-            Horizontal = 1;
-            facingRight = true;
+            facingRight = !facingRight;
+            Vector2 currentscale = gameObject.transform.localScale;
+            currentscale.x *= -1;
+            transform.localScale = currentscale;
+            Horizontal *= -1;
         }
     } 
 }
