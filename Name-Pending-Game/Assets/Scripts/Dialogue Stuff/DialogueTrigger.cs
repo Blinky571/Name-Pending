@@ -8,9 +8,15 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
 
     public string InteractionPrompt { get; }
 
+    public int SentenceNumber;
+
     public void ElevatorMove()
     {
-        FindObjectOfType<DialogueManager>().StartDialouge(dialogue);
+
+            Debug.Log("Error");
+            FindObjectOfType<DialogueManager>().StartDialouge(dialogue, SentenceNumber);
+
+
     }
 
     public void FlagSpot(int flagsPlaced)

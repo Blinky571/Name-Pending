@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text dialogueText;
     public Animator animator;
     private int _currentDialogue;
+    
     private void Awake()
     {
         _currentDialogue = 0;
@@ -24,7 +25,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (_currentDialogue == 7)
         {
-            Debug.Log("AA");
             EndDialogue();
             _currentDialogue = 0;
         }
@@ -51,19 +51,39 @@ public class DialogueManager : MonoBehaviour
             StartCoroutine(TypeSentence(uga));
         }
     }
-    public void StartDialouge(Dialogue dialogue)
+    public void StartDialouge(Dialogue dialogue, int count)
     {
 
-        animator.SetBool("IsOpen", true);
-        nameText.text = dialogue.name;
-        sentences.Clear();
-
-        foreach (string sentence in dialogue.sentences)
+        if (_currentDialogue == count + 1)
         {
-            sentences.Enqueue(sentence);
+            EndDialogue();
+            _currentDialogue = 0;
+        }
+        else
+        {
+            _currentDialogue++;
+        }
+        Debug.Log(_currentDialogue);
+        if (_currentDialogue == 1)
+        {
+            animator.SetBool("IsOpen", true);
+            nameText.text = dialogue.name;
+            sentences.Clear();
+
+            foreach (string sentence in dialogue.sentences)
+            {
+                sentences.Enqueue(sentence);
+            }
+        }
+        else
+        {
+            string uga = sentences.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(uga));
         }
 
-        DisplayNextSentence();
+
+
     }
     public void DisplayNextSentence()
     {
@@ -88,5 +108,6 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
+    
     }
 }
