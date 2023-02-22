@@ -26,6 +26,7 @@ public class Player_Controller : MonoBehaviour
     private float _jumpBufferTimeCounter;
     private bool _isWallSliding;
     private bool _isWallClimbing;
+    private float _moveTime;
 
 
     #region Player Speeds
@@ -96,9 +97,9 @@ public class Player_Controller : MonoBehaviour
         _animator.SetBool("isJogging", _isJogging);
         if (_moveInput != 0)
         {
-
             if (IsGrounded())
             {
+                _moveTime = _moveTime + Time.deltaTime;
                 _animator.SetBool("isWaiting", false);
                 _isJogging = true;
                 if (!audioSrc.isPlaying)
@@ -110,12 +111,10 @@ public class Player_Controller : MonoBehaviour
             {
                 audioSrc.Stop();
             }
-
-                
-            
         }
         else
         {
+            _moveTime = 0;
             audioSrc.Stop();
             _isJogging = false;
         }
@@ -171,6 +170,14 @@ public class Player_Controller : MonoBehaviour
     private void FixedUpdate()
     {
         _rb.velocity = new Vector2(_moveInput * _playerSpeed, _rb.velocity.y);
+        if (_moveTime > 0.5)
+        {
+            _playerSpeed = 5.2f;
+        }
+        else
+        {
+            _playerSpeed = 4.2f;
+        }
     }
     void Flip()
     {
