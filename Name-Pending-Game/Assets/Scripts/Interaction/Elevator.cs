@@ -14,7 +14,6 @@ public class Elevator : MonoBehaviour, IInteractable
     }
     public void ElevatorMove()
     {
-        Debug.Log("Uga");
         _player.transform.position = _depositor.transform.position;   
     }
     #region Unused
