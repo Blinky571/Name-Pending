@@ -19,7 +19,6 @@ public class Elevator : MonoBehaviour, IInteractable
     {
         brain.m_DefaultBlend.m_Time = 0;
         _player.transform.position = _depositor.transform.position;
-        brain.m_DefaultBlend.m_Time = 1;
     }
     #region Unused
     public int Interact(Interactor interactor, int powerCellsAcquired)
