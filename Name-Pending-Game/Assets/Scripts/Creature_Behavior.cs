@@ -44,8 +44,8 @@ public class Creature_Behavior : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(groundRay.transform.position, Vector2.down, 1f);
         Debug.DrawRay(groundRay.transform.position, Vector2.down,  Color.red);
 
-        RaycastHit2D wallHit = Physics2D.Raycast(groundRay.transform.position, Vector2.right * characterDirection, 0.5f);
-        Debug.DrawRay(groundRay.transform.position, Vector2.right * characterDirection, Color.red);
+        RaycastHit2D wallHit = Physics2D.Raycast(groundRay.transform.position, Vector2.left * characterDirection, 0.5f);
+        Debug.DrawRay(groundRay.transform.position, Vector2.left * characterDirection, Color.red);
 
         rb2d.velocity = new Vector2(Horizontal * speed, rb2d.velocity.y);
 
@@ -102,7 +102,7 @@ public class Creature_Behavior : MonoBehaviour
 
     void Turning(bool Hori, float faceRight)
     {
-        Debug.Log("goof");
+        Debug.Log(gameObject.name);
         if (!facingRight || facingRight)
         {
             facingRight = !facingRight;
