@@ -170,9 +170,9 @@ public class Player_Controller : MonoBehaviour
     private void FixedUpdate()
     {
         _rb.velocity = new Vector2(_moveInput * _playerSpeed, _rb.velocity.y);
-        if (_moveTime > 0.5)
+        if (_moveTime > 1)
         {
-            _playerSpeed = 5.2f;
+            _playerSpeed = 6f;
         }
         else
         {

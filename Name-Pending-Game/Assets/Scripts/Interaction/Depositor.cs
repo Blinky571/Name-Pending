@@ -16,11 +16,8 @@ public class Depositor : MonoBehaviour, IInteractable
 
     public int Interact(Interactor interactor, int powerCellsAcquired)
     {
- 
-
         if (powerCellsAcquired > 0)
         {
-
             particle.Play();
             powercell_Text.GatheredPowercell(powerCellsAcquired);
             powerCellsAcquired = 0;
@@ -29,11 +26,8 @@ public class Depositor : MonoBehaviour, IInteractable
         }
         else
         {
-            FindObjectOfType<DialogueManager>().StartDialouge(dialogue);
+            FindObjectOfType<DialogueManager>().ShipDialogue(dialogue);
         }
-
-
-
         return powerCellsAcquired;
     }
 
